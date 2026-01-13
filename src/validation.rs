@@ -62,6 +62,8 @@
 //! );
 //! ```
 
+use std::fmt;
+
 /// Specifies the target casing and character rules to validate and normalize
 /// a name.
 ///
@@ -88,7 +90,6 @@
 ///     "Sk-Learn"
 /// );
 /// ```
-
 pub enum Case {
     SnakeCase,
     TrainCase,
@@ -123,6 +124,15 @@ pub enum Case {
 pub enum ErrorCase {
     NumberNotAllowed,
     SpecialCharNotAllowed,
+}
+
+impl fmt::Display for ErrorCase {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match *self {
+            ErrorCase::NumberNotAllowed => write!(f, "Numbers are not allowed!"),
+            ErrorCase::SpecialCharNotAllowed => write!(f, "Only alphabetic characters are allowed"),
+        }
+    }
 }
 
 fn validate_name_snake(name: String) -> Result<String, ErrorCase> {

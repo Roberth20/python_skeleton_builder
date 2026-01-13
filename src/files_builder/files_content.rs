@@ -1,3 +1,5 @@
+//! Files sampl contents
+//! Here are allocated all the constant to fill the skeleton files.
 pub const SAMPLE_README: &'static str = "\
 # README's template for projects
 A short tagline or description of what your project does.
@@ -224,7 +226,8 @@ dependencies = [
     \"sqlalchemy\",
     \"numpy\",
     \"polars\",
-    \"plotly\"
+    \"plotly\",
+    \"structlog\"
 ]
 
 # Scripts here
@@ -250,3 +253,26 @@ convention = \"numpy\"
 [tool.ruff.lint.per-file-ignores]
 \"test/*\" = [\"D\", \"s\"]
                                          ";
+
+pub const SAMPLE_MAIN: &'static str = "\
+\"\"\"Example of main file with logs.\"\"\"
+
+import structlog
+import polars as pl 
+
+# This must be call in every file to log.
+logger = structlog.get_logger()
+
+df = pl.DataFrame({\"A\": [1, 2], \"B\": [3, 4]})
+logger.info(\"Hello world!\", more_than_strings=df)
+        ";
+
+pub const SAMPLE_CONFIG: &'static str = "\
+# Environment variables are splited if categories to make them easier
+# to read.
+DB:
+    DB_USER: \"some_user\"
+    DB_PASSWORD: \"some_password\"
+    DB_HOST: \"some_host\"
+    DB_DATABASE:\"some_service\"
+        ";
