@@ -1,6 +1,6 @@
 //! Files sampl contents
 //! Here are allocated all the constant to fill the skeleton files.
-pub const SAMPLE_README: &'static str = "\
+pub const SAMPLE_README: &str = "\
 # README's template for projects
 A short tagline or description of what your project does.
 
@@ -41,7 +41,7 @@ How to report something.
 Only if need it.
         ";
 
-pub const SAMPLE_TEST: &'static str = "\
+pub const SAMPLE_TEST: &str = "\
 import pytest
 
 def sample_test():
@@ -49,7 +49,7 @@ def sample_test():
     pass
         ";
 
-pub const SAMPLE_INIT: &'static str = "\
+pub const SAMPLE_INIT: &str = "\
 \"\"\"Packages initiator.
 
 Loads the environment variables
@@ -60,7 +60,7 @@ from .env import load_env
 load_env()
         ";
 
-pub const SAMPLE_GITIGNORE: &'static str = "\
+pub const SAMPLE_GITIGNORE: &str = "\
 # Python-generated files
 **__pycache__**
 *.py[oc]
@@ -76,7 +76,7 @@ wheels/
 **ipynb_checkpoints**
             ";
 
-pub const SAMPLE_ENV: &'static str = "\
+pub const SAMPLE_ENV: &str = "\
 \"\"\"Load environment variables.\"\"\"
 
 import os
@@ -141,7 +141,7 @@ def load_env(path: Optional[str | Path] = None):
             os.environ[k] = config[mk][k]
             ";
 
-pub const SAMPLE_DB: &'static str = "\
+pub const SAMPLE_DB: &str = "\
 \"\"\"Databases connections.
 
 This module provides functionalities to build secure conecctions to databases.
@@ -210,7 +210,7 @@ def get_engine() -> sqlalchemy.Engine:
     return engine
               ";
 
-pub static SAMPLE_PYPROJECT: &'static str = "\
+pub static SAMPLE_PYPROJECT: &str = "\
 [build-system]
 requires = [\"setuptools >= 70.0\"]
 build-backend = \"setuptools.build_meta\"
@@ -254,7 +254,7 @@ convention = \"numpy\"
 \"test/*\" = [\"D\", \"s\"]
                                          ";
 
-pub const SAMPLE_MAIN: &'static str = "\
+pub const SAMPLE_MAIN: &str = "\
 \"\"\"Example of main file with logs.\"\"\"
 
 import structlog
@@ -267,7 +267,7 @@ df = pl.DataFrame({\"A\": [1, 2], \"B\": [3, 4]})
 logger.info(\"Hello world!\", more_than_strings=df)
         ";
 
-pub const SAMPLE_CONFIG: &'static str = "\
+pub const SAMPLE_CONFIG: &str = "\
 # Environment variables are splited if categories to make them easier
 # to read.
 DB:

@@ -18,7 +18,7 @@
 //! ```
 use std::fs::DirBuilder;
 use std::io;
-use std::path::PathBuf;
+use std::path::Path;
 
 /// Generates the list of directory paths required for the project structure.
 ///
@@ -71,7 +71,7 @@ fn get_dirs(root_name: &str, docs: bool, package_name: &str) -> Vec<String> {
 /// }
 /// ```
 pub fn make_dirs(
-    parent_dir: &PathBuf,
+    parent_dir: &Path,
     root_name: &str,
     docs: bool,
     package_name: &str,
@@ -81,15 +81,13 @@ pub fn make_dirs(
     let dir_builder = DirBuilder::new();
     for dir_name in dirs_names {
         // Clone `parent_dir` to not edit the original path
-        let mut parent_copy = parent_dir.clone();
+        let mut parent_copy = parent_dir.to_path_buf();
         parent_copy.push(&dir_name);
         if verbose {
             println!("Creating directory: {}", parent_copy.display());
         }
         let result = dir_builder.create(parent_copy);
-        if result.is_err() {
-            return result;
-        }
+        result?;
     }
     Ok(())
 }

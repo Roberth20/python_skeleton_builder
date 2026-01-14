@@ -17,7 +17,7 @@
 //! - **Special characters** are restricted by case:
 //!   - For [`Case::SnakeCase`], only alphabetic ASCII letters and `_` are allowed.
 //!   - For [`Case::TrainCase`], only alphabetic ASCII letters and `-` are allowed.
-//!   Any other character yields [`ErrorCase::SpecialCharNotAllowed`].
+//!   - Any other character yields [`ErrorCase::SpecialCharNotAllowed`].
 //!
 //! # Normalization
 //!

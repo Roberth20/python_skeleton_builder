@@ -29,7 +29,7 @@ use std::io::prelude::Write;
 ///
 /// Returns a [`Vec`] of tuples containing `(file_path, file_content)`.
 fn get_files(root_name: &str, package_name: &str) -> Vec<(String, String)> {
-    let files = Vec::from([
+    Vec::from([
         (
             format!("{root_name}/README.md"),
             files_content::SAMPLE_README.to_string(),
@@ -66,8 +66,7 @@ fn get_files(root_name: &str, package_name: &str) -> Vec<(String, String)> {
             format!("{root_name}/config/DEV.yaml"),
             files_content::SAMPLE_CONFIG.to_string(),
         ),
-    ]);
-    files
+    ])
 }
 
 /// Populates the project structure with boilerplate files.
